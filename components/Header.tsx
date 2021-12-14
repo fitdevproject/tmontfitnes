@@ -1,25 +1,12 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, createRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
-  const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
-  const menuRef = useRef();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const clickListener = useCallback(
-    (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setToggleMobileMenu(!toggleMobileMenu); // using optional chaining here, change to onClose && onClose(), if required
-      }
-    },
-    [menuRef.current]
-  );
-  useEffect(() => {
-    document.addEventListener("mousedown", clickListener);
-
-    return () => {
-      document.removeEventListener("mousedown", clickListener);
-    };
-  }, []);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeMenu = () => setIsMobileMenuOpen(false);
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <nav className="bg-gray-100">
@@ -30,7 +17,10 @@ const Navbar = () => {
           {/* logo and text */}
           <div className="flex space-x-4">
             <Link href="/">
-              <a className="flex items-center py-5 px-2 text-gray-500 font-bold hover:text-gray-900">
+              <a
+                onClick={closeMenu}
+                className="cursor-pointer flex items-center py-5 px-2 text-gray-500 font-bold hover:text-gray-900"
+              >
                 TMONT FITNESS
               </a>
             </Link>
@@ -38,22 +28,23 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-1">
             <Link href="/About">
-              <a className="py-5 px-3 text-gray-500 hover:text-gray-900">
+              <a className="cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900">
                 About
               </a>
             </Link>
             <Link href="/FreeResources">
               <a
+                onClick={closeMenu}
                 href="/FreeResources"
-                className="py-5 px-3 text-gray-500 hover:text-gray-900"
+                className="cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
               >
                 Free Resources
               </a>
             </Link>
           </div>
           <div className="md:hidden flex items-center">
-            <button onClick={() => setToggleMobileMenu(!toggleMobileMenu)}>
-              {toggleMobileMenu ? (
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 text-gray-500 hover:text-gray-900"
@@ -83,25 +74,35 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        <div
-          ref={menuRef}
-          className={
-            toggleMobileMenu ? "hidden md:hidden" : "md:hidden text-center"
-          }
-        >
-          <Link href="/About">
-            <a className="block py-2 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500">
-              About
-            </a>
-          </Link>
-          <Link href="/FreeResources">
-            <a className="block py-2 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500">
-              Free Resources
-            </a>
-          </Link>
-        </div>
       </div>
       {/* Mobile Menu */}
+      <div
+        ref={menuRef}
+        className={
+          isMobileMenuOpen ? "hidden md:hidden" : "md:hidden text-center"
+        }
+      >
+        <Link href="/About">
+          <div>
+            <a
+              onClick={closeMenu}
+              className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
+            >
+              About
+            </a>
+          </div>
+        </Link>
+        <Link href="/FreeResources">
+          <div>
+            <a
+              onClick={closeMenu}
+              className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
+            >
+              Free Resources
+            </a>
+          </div>
+        </Link>
+      </div>
     </nav>
   );
 };
