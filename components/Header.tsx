@@ -47,7 +47,6 @@ const Navbar = () => {
             <Link href="/FreeResources">
               <a
                 onClick={closeMenu}
-                href="/FreeResources"
                 className={
                   router.pathname === "/FreeResources"
                     ? "cursor-pointer py-5 px-3 text-gray-900"
