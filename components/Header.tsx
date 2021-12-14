@@ -43,7 +43,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <button onClick={toggleMenu}>
               {isMobileMenuOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
