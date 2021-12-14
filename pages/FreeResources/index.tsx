@@ -24,7 +24,7 @@ const FreeResources: NextPage = () => {
           </a>
         </Link>
 
-        <Link href="https://instagramß.com/tmontfitness">
+        <Link href="https://instagram.com/tmontfitness">
           <a
             className="mx-auto block my-4 rounded bg-gray-100 max-w-xs md:max-w-xl py-4 px-4 text-sm md:text-lg hover:bg-gray-200 hover:text-gray-900 text-gray-500"
             target="_blank"
