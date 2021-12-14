@@ -1,9 +1,10 @@
-import { useState, useRef, createRef, useEffect, useCallback } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const router = useRouter();
   const menuRef = useRef<HTMLDivElement>(null);
   const closeMenu = () => setIsMobileMenuOpen(false);
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -19,7 +20,11 @@ const Navbar = () => {
             <Link href="/">
               <a
                 onClick={closeMenu}
-                className="cursor-pointer flex items-center py-5 px-2 text-gray-500 font-bold hover:text-gray-900"
+                className={
+                  router.pathname === "/"
+                    ? "font-bold cursor-pointer py-5 px-3 text-gray-900"
+                    : "font-bold cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                }
               >
                 TMONT FITNESS
               </a>
@@ -28,7 +33,14 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-1">
             <Link href="/About">
-              <a className="cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900">
+              <a
+                onClick={closeMenu}
+                className={
+                  router.pathname === "/About"
+                    ? "cursor-pointer py-5 px-3 text-gray-900"
+                    : "cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                }
+              >
                 About
               </a>
             </Link>
@@ -36,28 +48,20 @@ const Navbar = () => {
               <a
                 onClick={closeMenu}
                 href="/FreeResources"
-                className="cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                className={
+                  router.pathname === "/FreeResources"
+                    ? "cursor-pointer py-5 px-3 text-gray-900"
+                    : "cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                }
               >
                 Free Resources
               </a>
             </Link>
           </div>
+
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu}>
               {isMobileMenuOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-gray-500 hover:text-gray-900"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 text-gray-500 hover:text-gray-900"
@@ -70,6 +74,19 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-500 hover:text-gray-900"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               )}
             </button>
           </div>
@@ -77,30 +94,25 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu */}
       <div
-        ref={menuRef}
         className={
-          isMobileMenuOpen ? "hidden md:hidden" : "md:hidden text-center"
+          isMobileMenuOpen ? "md:hidden text-center" : "hidden md:hidden"
         }
       >
         <Link href="/About">
-          <div>
-            <a
-              onClick={closeMenu}
-              className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
-            >
-              About
-            </a>
-          </div>
+          <a
+            onClick={closeMenu}
+            className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
+          >
+            About
+          </a>
         </Link>
         <Link href="/FreeResources">
-          <div>
-            <a
-              onClick={closeMenu}
-              className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
-            >
-              Free Resources
-            </a>
-          </div>
+          <a
+            onClick={closeMenu}
+            className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
+          >
+            Free Resources
+          </a>
         </Link>
       </div>
     </nav>
