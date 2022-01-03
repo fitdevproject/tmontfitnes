@@ -110,8 +110,12 @@ const MacroCalculator = () => {
           gender: Yup.string().required("Gender is Required"),
           goal: Yup.string().required("Goal is Required"),
           activityLevel: Yup.string().required("Activity Level is Required"),
-          currentWeight: Yup.string().required("Current Weight is Required"),
-          goalWeight: Yup.string().required("Goal Weight is Required"),
+          currentWeight: Yup.number()
+            .typeError("Enter a valid number")
+            .required("Current Weight is Required"),
+          goalWeight: Yup.number()
+            .typeError("Enter a valid number")
+            .required("Goal Weight is Required"),
         })}
         onSubmit={(values, { resetForm }) => {
           alert(JSON.stringify(values, null, 2));
