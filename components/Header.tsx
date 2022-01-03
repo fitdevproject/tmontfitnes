@@ -10,20 +10,20 @@ const Navbar = () => {
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <nav className="bg-gray-100">
+    <nav className="bg-neutral-700 sticky top-0">
       {/* parent div */}
       <div className="max-w-6xl mx-auto px-4 justify-between">
         {/* logo div */}
         <div className="flex justify-between">
           {/* logo and text */}
           <div className="flex space-x-4">
-            <Link href="/">
+            <Link href="/FreeResources">
               <a
                 onClick={closeMenu}
                 className={
-                  router.pathname === "/"
-                    ? "font-bold cursor-pointer py-5 px-3 text-gray-900"
-                    : "font-bold cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                  router.pathname === "/FreeResources"
+                    ? "font-bold cursor-pointer py-5 px-3 text-neutral-400"
+                    : "font-bold cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
                 }
               >
                 TMONT FITNESS
@@ -32,28 +32,40 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-1">
-            <Link href="/About">
+            {/* <Link href="/About">
               <a
                 onClick={closeMenu}
                 className={
                   router.pathname === "/About"
-                    ? "cursor-pointer py-5 px-3 text-gray-900"
-                    : "cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                    ? "cursor-pointer py-5 px-3 text-neutral-400"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
                 }
               >
                 About
               </a>
-            </Link>
+            </Link> */}
             <Link href="/FreeResources">
               <a
                 onClick={closeMenu}
                 className={
                   router.pathname === "/FreeResources"
-                    ? "cursor-pointer py-5 px-3 text-gray-900"
-                    : "cursor-pointer py-5 px-3 text-gray-500 hover:text-gray-900"
+                    ? "cursor-pointer py-5 px-3 text-neutral-400"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
                 }
               >
                 Free Resources
+              </a>
+            </Link>
+            <Link href="/MacroCalculator">
+              <a
+                onClick={closeMenu}
+                className={
+                  router.pathname === "/MacroCalculator"
+                    ? "cursor-pointer py-5 px-3 text-neutral-400"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
+                }
+              >
+                Macro Calculator
               </a>
             </Link>
           </div>
@@ -63,7 +75,7 @@ const Navbar = () => {
               {isMobileMenuOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-gray-500 hover:text-gray-900"
+                  className="h-6 w-6 text-neutral-50 hover:text-neutral-300"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -76,7 +88,7 @@ const Navbar = () => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-gray-500 hover:text-gray-900"
+                  className="h-6 w-6 text-neutral-50 hover:text-neutral-300"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -97,20 +109,28 @@ const Navbar = () => {
           isMobileMenuOpen ? "md:hidden text-center" : "hidden md:hidden"
         }
       >
-        <Link href="/About">
+        {/* <Link href="/About">
           <a
             onClick={closeMenu}
-            className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
+            className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800 text-neutral-50 hover:text-neutral-300"
           >
             About
           </a>
-        </Link>
+        </Link> */}
         <Link href="/FreeResources">
           <a
             onClick={closeMenu}
-            className="cursor-pointer block py-4 px-4 text-sm hover:bg-gray-200 hover:text-gray-900 text-gray-500"
+            className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800  text-neutral-50 hover:text-neutral-300"
           >
             Free Resources
+          </a>
+        </Link>
+        <Link href="/MacroCalculator">
+          <a
+            onClick={closeMenu}
+            className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800  text-neutral-50 hover:text-neutral-300"
+          >
+            Macro Calculator
           </a>
         </Link>
       </div>

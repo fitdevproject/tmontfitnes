@@ -5,7 +5,25 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    backgroundSize: {
+      1: "1rem",
+    },
+    extend: {
+      backgroundImage: {
+        down: "url('/img/down.svg')",
+      },
+      colors: {
+        primaryGray: {
+          100: "#121212",
+        },
+        hoverGray: {
+          100: "#383838",
+        },
+        secondaryGray: {
+          100: "#252525",
+        },
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
