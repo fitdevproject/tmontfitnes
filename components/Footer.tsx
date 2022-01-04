@@ -25,7 +25,7 @@ const Footer = () => {
             </a>
           </Link>
         </div>
-        <div className="py-5 px-2 text-neutral-50 text-sm">
+        <div className="py-3 px-2 text-neutral-50 text-sm">
           Copyright &copy; {new Date().getFullYear()} TMONT FITNESS
         </div>
       </div>

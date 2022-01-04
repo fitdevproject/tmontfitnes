@@ -252,6 +252,18 @@ const MacroCalculator = () => {
               </div>
             </div>
           </div>
+          <div className="flex items-center">
+            <button
+              onClick={() => {
+                setDailyCalories(0);
+                setDailyProtein(0);
+              }}
+              type="button"
+              className="w-60  py-2 px-4 rounded bg-gradient-to-r from-green-500 to-green-700 text-neutral-700 hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black"
+            >
+              Recalculate
+            </button>
+          </div>
           <div className="px-4 py-4 w-96 md:w-4/5 mb-8">
             <p className=" text-xl font-bold text-green-500">Calorie Target:</p>
             <p className="mt-2 text-neutral-50 mb-4">
