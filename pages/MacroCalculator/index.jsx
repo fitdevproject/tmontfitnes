@@ -98,7 +98,9 @@ const MacroCalculator = () => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  useEffect(() => {}, [dailyCalories, dailyProtein]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [dailyCalories, dailyProtein]);
   return (
     <>
       <h1 className="block mx-auto my-4 text-center text-neutral-50 text-3xl">
