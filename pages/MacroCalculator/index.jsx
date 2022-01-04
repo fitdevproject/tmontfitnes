@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Formik, Form, useField } from "formik";
 import * as Yup from "yup";
+import { IoIosFlame } from "react-icons/io";
+import { GiMeat, GiMeal } from "react-icons/gi";
 const MacroCalculator = () => {
   const [dailyCalories, setDailyCalories] = useState(0);
   const [dailyProtein, setDailyProtein] = useState(0);
@@ -202,29 +204,51 @@ const MacroCalculator = () => {
               <hr className="mt-4" />
             </div>
             <div className="md:flex md:items-center justify-evenly">
-              <div className="px-2 py-2 flex md:flex-col">
-                <h1 className="text-neutral-800 mr-2 md:m-0">
-                  Daily Calorie Target:
-                </h1>
-                <p className="text-neutral-800 text-center font-bold">
-                  {dailyCalories}
-                </p>
+              <div className="mb-2 flex md:flex-col">
+                <div className="flex">
+                  <div className="mr-2">
+                    <IoIosFlame color="black" size={30} />
+                  </div>
+                  <div className="mb-2 flex md:flex-col">
+                    <h1 className="text-neutral-800 mr-2 md:m-0">
+                      Daily Calorie Target:
+                    </h1>
+                    <p className="text-neutral-800 text-center font-bold">
+                      {dailyCalories}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="px-2 py-2 flex md:flex-col">
-                <h1 className="text-neutral-800 mr-2 md:m-0">
-                  Daily Protein Target:
-                </h1>
-                <p className="text-neutral-800 text-center font-bold">
-                  {dailyProtein}
-                </p>
+              <div className="mb-2 flex md:flex-col">
+                <div className="flex">
+                  <div className="mr-2">
+                    <GiMeat color="black" size={30} />
+                  </div>
+                  <div className="mb-2 flex md:flex-col">
+                    <h1 className="text-neutral-800 mr-2 md:m-0">
+                      Daily Protein Target:
+                    </h1>
+
+                    <p className="text-neutral-800 text-center font-bold">
+                      {dailyProtein}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="px-2 py-2 flex md:flex-col">
-                <h1 className="text-neutral-800 mr-2 md:m-0">
-                  Weekly Calorie Target:
-                </h1>
-                <p className="text-neutral-800 text-center font-bold">
-                  {numberWithCommas(dailyCalories * 7)}
-                </p>
+              <div className="mb-2 flex md:flex-col">
+                <div className="flex">
+                  <div className="mr-2">
+                    <GiMeal color="black" size={30} />
+                  </div>
+                  <div className="mb-2 flex md:flex-col">
+                    <h1 className="text-neutral-800 mr-2 md:m-0">
+                      Weekly Calorie Target:
+                    </h1>
+                    <p className="text-neutral-800 text-center font-bold">
+                      {numberWithCommas(dailyCalories * 7)}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
