@@ -252,7 +252,7 @@ const MacroCalculator = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center mb-8">
             <button
               onClick={() => {
                 setDailyCalories(0);
