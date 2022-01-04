@@ -249,14 +249,14 @@ const MacroCalculator = () => {
               depending on the goal you have chosen.
             </p>
             <p className="text-green-500 text-xl font-bold">
-              Fat & Carb Target:
+              Fat and Carb Target:
             </p>
             <p className="mt-2 text-neutral-50 mb-4">
-              Your daily fat & carb target is up to you. As long as you are
+              Your daily fat and carb target is up to you. As long as you are
               hitting your protein and calorie goal, the amount of carb vs fat
-              doesn't matter. Some do better with higher carb, and some do
+              does not matter. Some do better with higher carb, and some do
               better with lower carb. We are following more of a flexible
-              approach to dieting, because I don't believe in forcing someone
+              approach to dieting, because I do not believe in forcing someone
               into a super restrictive lifestyle by following a diet where a
               macro nutrient is entirely cut out for the sake of losing weight.
             </p>
