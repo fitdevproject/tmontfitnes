@@ -318,16 +318,16 @@ const MacroCalculator = () => {
               your goal is to maintain and you are gaining or losing vice
               maintaining, add or subtract 100 calories per week until you are
               maintaining. Example of how to manipulate your calories: Lets say
-              you are eating 2000 calorires a day, and the first week of eating
+              you are eating 2000 calories a day, and the first week of eating
               this many calories you lost more than 1-2 pounds. The following
               week you would add 100 calories to your daily total. Instead of
               2000 calories per day, you would now eat 2100 calories per day.
               The next week if you still are losing more than 1-2 pounds, add
               another 100 calories. You would now be eating 2200 calories per
-              day. Remember your weekly total would also increase as well. Just
+              day. Remember your weekly total will also increase as well. Just
               take your daily total multiplied by 7 to refigure this. You can do
-              this with whichever goal you chose, just either add or subtract
-              depending on if you're losing or gaining too fast.
+              this with whichever goal you decided upon, just either add or
+              subtract depending on if you are losing or gaining too fast.
             </p>
             <p className="text-sm text-neutral-50">
               * You should always consult with a health professional before
