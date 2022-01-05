@@ -4,6 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-neutral-700">
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center">
+        <h1 className="text-neutral-50 mt-2 text-sm">Follow On Social</h1>
         <div className="flex mt-2">
           <Link href="https://twitter.com/tmontfitness">
             <a className="animate-fade-in-down mr-4" target="_blank">

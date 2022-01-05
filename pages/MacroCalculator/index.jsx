@@ -207,7 +207,11 @@ const MacroCalculator = () => {
               <div className="mb-2 flex md:flex-col">
                 <div className="flex">
                   <div className="mr-2">
-                    <IoIosFlame color="black" size={30} />
+                    <IoIosFlame
+                      className="animate-wiggle"
+                      color="black"
+                      size={20}
+                    />
                   </div>
                   <div className="mb-2 flex md:flex-col">
                     <h1 className="text-neutral-800 mr-2 md:m-0">
@@ -222,7 +226,11 @@ const MacroCalculator = () => {
               <div className="mb-2 flex md:flex-col">
                 <div className="flex">
                   <div className="mr-2">
-                    <GiMeat color="black" size={30} />
+                    <GiMeat
+                      className="animate-wiggle"
+                      color="black"
+                      size={20}
+                    />
                   </div>
                   <div className="mb-2 flex md:flex-col">
                     <h1 className="text-neutral-800 mr-2 md:m-0">
@@ -238,7 +246,11 @@ const MacroCalculator = () => {
               <div className="mb-2 flex md:flex-col">
                 <div className="flex">
                   <div className="mr-2">
-                    <GiMeal color="black" size={30} />
+                    <GiMeal
+                      className="animate-wiggle"
+                      color="black"
+                      size={20}
+                    />
                   </div>
                   <div className="mb-2 flex md:flex-col">
                     <h1 className="text-neutral-800 mr-2 md:m-0">
@@ -301,9 +313,9 @@ const MacroCalculator = () => {
             <p className="text-sm text-neutral-50 mb-4">
               * This calculation is an estimation based on the information you
               have provided. If your goal is to lose fat or build muscle and you
-              are gaining or losing too quickly, add or subtract 100 calories
-              per week until you are losing or gaining 1-2lbs per week. If your
-              goal is to maintain and you are gaining or losing vice
+              are gaining or losing too quickly, add or subtract 100 calories a
+              day per week until you are losing or gaining 1-2lbs per week. If
+              your goal is to maintain and you are gaining or losing vice
               maintaining, add or subtract 100 calories per week until you are
               maintaining.
             </p>
