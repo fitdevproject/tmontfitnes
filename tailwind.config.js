@@ -51,6 +51,15 @@ module.exports = {
         secondaryGray: {
           100: "#252525",
         },
+        tmontGreen: {
+          100: "#63B175",
+        },
+        tmontActiveTab: {
+          100: "#4E9359",
+        },
+        tmontGray: {
+          100: "#525E74",
+        },
       },
     },
   },

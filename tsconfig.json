@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/MacroCalculator/index.jsx"
+    "pages/MacroCalculator/index.jsx",
+    "components/Newsletter.jsx"
   ],
   "exclude": ["node_modules"]
 }

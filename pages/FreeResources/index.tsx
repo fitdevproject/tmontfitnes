@@ -16,6 +16,14 @@ const FreeResources: NextPage = () => {
             Free Full Body Workout Blueprint
           </a>
         </Link>
+        <Link href="/MacroCalculator">
+          <a
+            className="animate-fade-in-down mx-auto block my-4 rounded bg-gradient-to-r from-green-500 to-green-700 max-w-xs md:max-w-xl py-4 px-4 md:text-lg hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black text-neutral-700"
+            target="_blank"
+          >
+            Calculate Your Macros For Free
+          </a>
+        </Link>
       </div>
     </div>
   );

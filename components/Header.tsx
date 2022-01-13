@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { GiWeightLiftingUp } from "react-icons/gi";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,22 +18,36 @@ const Navbar = () => {
         <div className="flex justify-between">
           {/* logo and text */}
           <div className="flex space-x-4">
-            <Link href="/FreeResources">
+            <Link href="/">
               <a
                 onClick={closeMenu}
-                className={
-                  router.pathname === "/FreeResources"
-                    ? "font-bold cursor-pointer py-5 px-3 text-neutral-400"
-                    : "font-bold cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
-                }
+                className="font-bold cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
               >
-                TMONT FITNESS
+                <div className="flex align-middle">
+                  <GiWeightLiftingUp
+                    className="animate-wiggle mr-2 text-green-500"
+                    size={25}
+                  />
+                  <p className="text-lg">TMONT FITNESS</p>
+                </div>
               </a>
             </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-1">
-            {/* <Link href="/About">
+            <Link href="/">
+              <a
+                onClick={closeMenu}
+                className={
+                  router.pathname === "/"
+                    ? "cursor-pointer py-5 px-3 text-neutral-400"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
+                }
+              >
+                Home
+              </a>
+            </Link>
+            {/* <Link href="#About">
               <a
                 onClick={closeMenu}
                 className={
@@ -117,6 +132,14 @@ const Navbar = () => {
             About
           </a>
         </Link> */}
+        <Link href="/">
+          <a
+            onClick={closeMenu}
+            className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800  text-neutral-50 hover:text-neutral-300"
+          >
+            Home
+          </a>
+        </Link>
         <Link href="/FreeResources">
           <a
             onClick={closeMenu}

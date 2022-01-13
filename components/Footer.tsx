@@ -9,8 +9,7 @@ const Footer = () => {
           <Link href="https://twitter.com/tmontfitness">
             <a className="animate-fade-in-down mr-4" target="_blank">
               <IoLogoTwitter
-                className="animate-wiggle"
-                color="green"
+                className="animate-wiggle text-green-500 hover:text-green-700"
                 size={30}
               />
             </a>
@@ -19,8 +18,7 @@ const Footer = () => {
           <Link href="https://instagram.com/tmontfitness">
             <a className="animate-fade-in-down " target="_blank">
               <IoLogoInstagram
-                className="animate-wiggle"
-                color="green"
+                className="animate-wiggle text-green-500 hover:text-green-700"
                 size={30}
               />
             </a>

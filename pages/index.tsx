@@ -1,7 +1,12 @@
 import type { NextPage } from "next";
+import Newsletter from "../components/Newsletter";
 
 const Home: NextPage = () => {
-  return <div></div>;
+  return (
+    <>
+      <Newsletter />
+    </>
+  );
 };
 
 export default Home;
