@@ -16,7 +16,7 @@ const FreeResources: NextPage = () => {
           Online Health & Fitness Coach
         </p>
         <p className="text-sm text-center text-neutral-50 mt-1">
-          Helpling you build muscle, lose body fat, & gain confidence
+          Build Muscle - Lose Body Fat - Gain Confidence
         </p>
         <Link href="/">
           <a className="text-green-500 text-sm hover:text-green-700 my-4">
