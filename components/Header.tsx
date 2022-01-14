@@ -59,18 +59,6 @@ const Navbar = () => {
                 About
               </a>
             </Link> */}
-            <Link href="/FreeResources">
-              <a
-                onClick={closeMenu}
-                className={
-                  router.pathname === "/FreeResources"
-                    ? "cursor-pointer py-5 px-3 text-neutral-400"
-                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-neutral-400"
-                }
-              >
-                Free Resources
-              </a>
-            </Link>
             <Link href="/MacroCalculator">
               <a
                 onClick={closeMenu}
@@ -138,14 +126,6 @@ const Navbar = () => {
             className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800  text-neutral-50 hover:text-neutral-300"
           >
             Home
-          </a>
-        </Link>
-        <Link href="/FreeResources">
-          <a
-            onClick={closeMenu}
-            className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800  text-neutral-50 hover:text-neutral-300"
-          >
-            Free Resources
           </a>
         </Link>
         <Link href="/MacroCalculator">

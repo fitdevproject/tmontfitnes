@@ -4,7 +4,9 @@ import Newsletter from "../components/Newsletter";
 const Home: NextPage = () => {
   return (
     <>
-      <Newsletter />
+      <div id="freeWorkout">
+        <Newsletter />
+      </div>
     </>
   );
 };
