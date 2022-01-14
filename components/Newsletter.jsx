@@ -25,10 +25,10 @@ const Newsletter = () => {
               , completely free when you sign up for my newsletter.
             </h1>
           </div>
-          <div id="inputContainer" className="flex">
+          <div id="inputContainer" className="flex flex-col md:flex-row">
             <div id="firstName">
               <input
-                className="mr-2 rounded"
+                className="mb-2 md:mb-0 md:mr-2 rounded w-60"
                 placeholder="First Name"
                 type="text"
                 name="member[first_name]"
@@ -37,7 +37,7 @@ const Newsletter = () => {
             </div>
             <div id="email">
               <input
-                className="mr-2 rounded"
+                className="mb-2 md:mb-0 md:mr-2 rounded w-60"
                 placeholder="Your Email Address"
                 type="email"
                 required
