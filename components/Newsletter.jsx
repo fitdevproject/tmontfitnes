@@ -10,7 +10,7 @@ const Newsletter = () => {
       name="revue-form"
       target="_blank"
     >
-      <div className="flex flex-col items-center px-8">
+      <div className="flex flex-col items-center">
         <div id="formInfoTitle">
           <h1 className="mb-6 text-center text-neutral-50 text-3xl md:text-4xl lg:text-5xl">
             Want a free program?
@@ -18,7 +18,7 @@ const Newsletter = () => {
         </div>
         <div id="formInfo" className="w-3/4">
           <h1 className=" mb-6 text-center text-neutral-50 text-md md:text-l">
-            Get the first 2 weeks of my program,{" "}
+            Get the first 3 weeks of my program,{" "}
             <span className="font-extrabold italic">Strength Foundations</span>,
             completely free when you sign up for my newsletter.
           </h1>
