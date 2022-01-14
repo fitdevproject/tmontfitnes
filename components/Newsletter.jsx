@@ -2,9 +2,8 @@ import { useState } from "react";
 
 const Newsletter = () => {
   return (
-    <div className="px-2 my-8">
+    <div className="flex flex-col items-center px-2 my-8">
       <form
-        className="flex flex-col items-center justify-center"
         action="https://www.getrevue.co/profile/tmontfitness/add_subscriber"
         method="post"
         id="revue-form"
@@ -57,7 +56,7 @@ const Newsletter = () => {
             </button>
           </div>
           <div id="formInfo" className="w-3/4">
-            <h1 className=" mb-6 text-center text-neutral-50 text-xs md:text-sm">
+            <h1 className="text-center text-neutral-50 text-xs md:text-sm">
               * I will not spam your inbox, and you can opt out any time. I will
               occasionally send deals for my programs.
             </h1>
