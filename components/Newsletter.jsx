@@ -2,9 +2,9 @@ import { useState } from "react";
 
 const Newsletter = () => {
   return (
-    <div>
+    <div className="px-2 my-8">
       <form
-        className="flex flex-col items-center justify-center min-h-screen"
+        className="flex flex-col items-center justify-center"
         action="https://www.getrevue.co/profile/tmontfitness/add_subscriber"
         method="post"
         id="revue-form"
