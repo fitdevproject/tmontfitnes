@@ -10,13 +10,13 @@ const Newsletter = () => {
       name="revue-form"
       target="_blank"
     >
-      <div className="flex flex-col items-center px-80">
+      <div className="flex flex-col items-center px-8">
         <div id="formInfoTitle">
           <h1 className="mb-6 text-center text-neutral-50 text-3xl md:text-4xl lg:text-5xl">
             Want a free program?
           </h1>
         </div>
-        <div id="formInfo">
+        <div id="formInfo" className="w-3/4">
           <h1 className=" mb-6 text-center text-neutral-50 text-md md:text-l">
             Get the first 2 weeks of my program,{" "}
             <span className="font-extrabold italic">Strength Foundations</span>,
@@ -53,10 +53,10 @@ const Newsletter = () => {
             Subscribe
           </button>
         </div>
-        <div id="formInfo">
+        <div id="formInfo" className="w-3/4">
           <h1 className=" mb-6 text-center text-neutral-50 text-xs md:text-sm">
             * I will not spam your inbox, and you can opt out any time. I will
-            occasionally send deals for my programs your way
+            occasionally send deals for my programs.
           </h1>
         </div>
       </div>
