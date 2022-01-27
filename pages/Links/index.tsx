@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { IoLogoTwitter, IoLogoInstagram } from "react-icons/io";
-const FreeResources: NextPage = () => {
+const Links: NextPage = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="mt-8 flex flex-col items-center">
@@ -38,7 +38,7 @@ const FreeResources: NextPage = () => {
         <Link href="https://discord.gg/gmPuTXUw">
           <a
             target="_blank"
-            className="animate-fade-in-down mx-auto block my-4 rounded bg-gradient-to-r from-green-500 to-green-700 max-w-xs md:max-w-xl py-4 px-4 md:text-lg hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black text-neutral-700"
+            className="animate-fade-in-down mx-auto block mt-4 mb-12 rounded bg-gradient-to-r from-green-500 to-green-700 max-w-xs md:max-w-xl py-4 px-4 md:text-lg hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black text-neutral-700"
           >
             Join Free Discord Community
           </a>
@@ -48,4 +48,4 @@ const FreeResources: NextPage = () => {
   );
 };
 
-export default FreeResources;
+export default Links;

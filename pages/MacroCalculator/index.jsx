@@ -6,39 +6,214 @@ import { IoIosFlame } from "react-icons/io";
 import { GiMeat, GiMeal } from "react-icons/gi";
 const MacroCalculator = () => {
   const [dailyCalories, setDailyCalories] = useState(0);
+  const [dailyFats, setDailyFats] = useState(0);
+  const [dailyCarbs, setDailyCarbs] = useState(0);
   const [dailyProtein, setDailyProtein] = useState(0);
 
   const calculateCalories = (
+    age,
     goal,
+    gender,
+    feet,
+    inches,
     goalWeight,
     currentWeight,
     activityLevel
   ) => {
-    if (goal === "Lose Fat") {
-      setDailyCalories(parseInt(goalWeight) * 12);
-    }
-    if (goal === "Maintain") {
+    //Local variables
+    let height = getHeightInInches(feet, inches);
+    let bmr;
+    let neat;
+    let calorieTotal;
+    let proteinCalories;
+    let fatCalories;
+    let carbs;
+    let tdee; //Maintenance calories
+
+    //Calculate BMR
+    //Women BMR = 655 + (9.6 * weight in kg) + (1.8 * height in cm) - (4.7 * age in yrs)
+    //Men BMR = 66 + (13.7 * weight in kg) + (5 * height in cm) - (6.8 * age in yrs)
+    if (gender === "Female") {
+      bmr =
+        655 +
+        (9.6 * parseInt(currentWeight)) / 2.2 +
+        1.8 * parseFloat(height) * 2.54 -
+        4.7 * parseInt(age);
+      console.log("BMR is: ", bmr);
+
+      //Calculate TDEE(maintenance)
+      //BMR * activity level
       if (activityLevel === "Sedentary") {
-        setDailyCalories(parseInt(currentWeight) * 13);
-      } else {
-        setDailyCalories(parseInt(currentWeight) * 14);
+        neat = 1.2;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Lightly Active") {
+        neat = 1.375;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Moderately Active") {
+        neat = 1.55;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Very Active") {
+        neat = 1.725;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Extremely Active") {
+        neat = 1.9;
+        tdee = bmr * neat;
+      }
+      console.log("Tdee is:", tdee);
+
+      //Calculate macros based on goal
+
+      //Fat loss is tdee * 20%
+      //Protein is goal weight * 1 for men, goal weight * .8 for women || protein * 4 = calories for protein
+      //Fat is .3 * current weight || fat * 9 = calories for fat
+      //Carbs is Total calories - (protein calories + fat calorires) / 4
+
+      //Maintain is tdee
+      //Protein is current weight * 1 for men, current weight * .8 for women || protein * 4 = calories for protein
+      //Fat is .3 * current weight || fat * 9 = calories for fat
+      //Carbs is Total calories - (protein calories + fat calorires) / 4
+
+      //Gain muscle is tdee + 200
+      //Protein is current weight * 1 for men, current weight * .8 for women || protein * 4 = calories for protein
+      //Fat is .3 * current weight || fat * 9 = calories for fat
+      //Carbs is Total calories - (protein calories + fat calorires) / 4
+
+      if (goal === "Lose Fat") {
+        calorieTotal = parseInt(tdee - tdee * 0.2);
+        setDailyCalories(calorieTotal);
+        setDailyProtein(Math.trunc(parseInt(goalWeight) * 0.8));
+        let p = Math.trunc(parseInt(goalWeight) * 0.8);
+        proteinCalories = p * 4;
+        console.log("protein calories: ", proteinCalories);
+        setDailyFats(Math.trunc(parseInt(currentWeight) * 0.3));
+        let f = Math.trunc(parseInt(currentWeight) * 0.3);
+        fatCalories = f * 9;
+        console.log("fat calories: ", fatCalories);
+        carbs = (calorieTotal - (proteinCalories + fatCalories)) / 4;
+        setDailyCarbs(parseInt(carbs));
+      }
+      if (goal === "Maintain") {
+        setDailyCalories(parseInt(tdee));
+        setDailyProtein(Math.trunc(parseInt(goalWeight) * 0.8));
+        let p = Math.trunc(parseInt(goalWeight) * 0.8);
+        proteinCalories = p * 4;
+        setDailyFats(Math.trunc(parseInt(currentWeight) * 0.3));
+        let f = Math.trunc(parseInt(currentWeight) * 0.3);
+        fatCalories = f * 9;
+        carbs = (tdee - (proteinCalories + fatCalories)) / 4;
+        setDailyCarbs(parseInt(carbs));
+      }
+
+      if (goal === "Build Muscle") {
+        calorieTotal = tdee + 200;
+        setDailyCalories(parseInt(calorieTotal));
+        setDailyProtein(Math.trunc(parseInt(goalWeight) * 0.8));
+        let p = Math.trunc(parseInt(goalWeight) * 0.8);
+        proteinCalories = p * 4;
+        setDailyFats(Math.trunc(parseInt(currentWeight) * 0.3));
+        let f = Math.trunc(parseInt(currentWeight) * 0.3);
+        fatCalories = f * 9;
+        carbs = (calorieTotal - (proteinCalories + fatCalories)) / 4;
+        setDailyCarbs(parseInt(carbs));
       }
     }
-    if (goal === "Build Muscle") {
+
+    //Calculate BMR
+    //Women BMR = 655 + (9.6 * weight in kg) + (1.8 * height in cm) - (4.7 * age in yrs)
+    //Men BMR = 66 + (13.7 * weight in kg) + (5 * height in cm) - (6.8 * age in yrs)
+    if (gender === "Male") {
+      bmr =
+        66 +
+        (13.7 * parseInt(currentWeight)) / 2.2 +
+        5 * parseFloat(height) * 2.54 -
+        6.8 * parseInt(age);
+
+      //Calculate TDEE(maintenance)
+      //BMR * activity level
       if (activityLevel === "Sedentary") {
-        setDailyCalories(parseInt(currentWeight) * 15);
-      } else {
-        setDailyCalories(parseInt(currentWeight) * 16);
+        neat = 1.2;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Lightly Active") {
+        neat = 1.375;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Moderately Active") {
+        neat = 1.55;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Very Active") {
+        neat = 1.725;
+        tdee = bmr * neat;
+      }
+      if (activityLevel === "Extremely Active") {
+        neat = 1.9;
+        tdee = bmr * neat;
+      }
+
+      //Calculate macros based on goal
+
+      //Fat loss is tdee * 20%
+      //Protein is goal weight * 1 for men, goal weight * .8 for women || protein * 4 = calories for protein
+      //Fat is .3 * current weight || fat * 9 = calories for fat
+      //Carbs is Total calories - (protein calories + fat calorires) / 4
+
+      //Maintain is tdee
+      //Protein is current weight * 1 for men, current weight * .8 for women || protein * 4 = calories for protein
+      //Fat is .3 * current weight || fat * 9 = calories for fat
+      //Carbs is Total calories - (protein calories + fat calorires) / 4
+
+      //Gain muscle is tdee + 200
+      //Protein is current weight * 1 for men, current weight * .8 for women || protein * 4 = calories for protein
+      //Fat is .3 * current weight || fat * 9 = calories for fat
+      //Carbs is Total calories - (protein calories + fat calorires) / 4
+
+      if (goal === "Lose Fat") {
+        calorieTotal = parseInt(tdee - tdee * 0.2);
+        setDailyCalories(calorieTotal);
+        setDailyProtein(Math.trunc(parseInt(goalWeight) * 1));
+        let p = Math.trunc(parseInt(goalWeight) * 1);
+        proteinCalories = p * 4;
+        setDailyFats(Math.trunc(parseInt(currentWeight) * 0.3));
+        let f = Math.trunc(parseInt(currentWeight) * 0.3);
+        fatCalories = f * 9;
+        carbs = (calorieTotal - (proteinCalories + fatCalories)) / 4;
+        setDailyCarbs(parseInt(carbs));
+      }
+      if (goal === "Maintain") {
+        setDailyCalories(parseInt(tdee));
+        setDailyProtein(Math.trunc(parseInt(goalWeight) * 1));
+        let p = Math.trunc(parseInt(goalWeight) * 1);
+        proteinCalories = p * 4;
+        setDailyFats(Math.trunc(parseInt(currentWeight) * 0.3));
+        let f = Math.trunc(parseInt(currentWeight) * 0.3);
+        fatCalories = f * 9;
+        carbs = (tdee - (proteinCalories + fatCalories)) / 4;
+        setDailyCarbs(parseInt(carbs));
+      }
+
+      if (goal === "Build Muscle") {
+        calorieTotal = tdee + 200;
+        setDailyCalories(parseInt(calorieTotal));
+        setDailyProtein(Math.trunc(parseInt(goalWeight) * 1));
+        let p = Math.trunc(parseInt(goalWeight) * 1);
+        proteinCalories = p * 4;
+        setDailyFats(Math.trunc(parseInt(currentWeight) * 0.3));
+        let f = Math.trunc(parseInt(currentWeight) * 0.3);
+        fatCalories = f * 9;
+        carbs = (calorieTotal - (proteinCalories + fatCalories)) / 4;
+        setDailyCarbs(parseInt(carbs));
       }
     }
   };
 
-  const calculateProteinGoal = (gender, goalWeight) => {
-    if (gender === "Female") {
-      setDailyProtein(Math.trunc(parseInt(goalWeight) * 0.8));
-    } else {
-      setDailyProtein(parseInt(goalWeight));
-    }
+  const getHeightInInches = (feet, inches) => {
+    let inchesToReturn = parseInt(feet) * 12 + parseInt(inches);
+    return inchesToReturn;
   };
 
   const MyTextInput = ({ label, ...props }) => {
@@ -59,6 +234,52 @@ const MacroCalculator = () => {
             meta.touched && meta.error
               ? "m-0 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-red-500 h-auto bg-neutral-400"
               : "m-0 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-neutral-700 h-auto bg-neutral-400"
+          }
+          {...field}
+          {...props}
+        />
+        {meta.touched && meta.error ? (
+          <div className="text-red-500 text-sm">{meta.error}</div>
+        ) : null}
+      </div>
+    );
+  };
+
+  const MyFeetTextInput = ({ ...props }) => {
+    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+    // which we can spread on <input>. We can use field meta to show an error
+    // message if the field is invalid and it has been touched (i.e. visited)
+    const [field, meta] = useField(props);
+    return (
+      <div className="flex flex-col md:w-48 w-40">
+        <input
+          className={
+            meta.touched && meta.error
+              ? "mr-2 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-red-500 h-auto bg-neutral-400"
+              : "mr-2 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-neutral-700 h-auto bg-neutral-400"
+          }
+          {...field}
+          {...props}
+        />
+        {meta.touched && meta.error ? (
+          <div className="text-red-500 text-sm">{meta.error}</div>
+        ) : null}
+      </div>
+    );
+  };
+
+  const MyInchesTextInput = ({ ...props }) => {
+    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+    // which we can spread on <input>. We can use field meta to show an error
+    // message if the field is invalid and it has been touched (i.e. visited)
+    const [field, meta] = useField(props);
+    return (
+      <div className="flex flex-col md:w-48 w-40">
+        <input
+          className={
+            meta.touched && meta.error
+              ? " appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-red-500 h-auto bg-neutral-400"
+              : " appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-neutral-700 h-auto bg-neutral-400"
           }
           {...field}
           {...props}
@@ -102,15 +323,21 @@ const MacroCalculator = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [dailyCalories, dailyProtein]);
+  }, [dailyCalories, dailyProtein, dailyCarbs, dailyFats]);
   return (
     <>
       <h1 className="block mx-auto my-8 text-center text-neutral-50 text-3xl">
         Macro Calculator
       </h1>
-      {dailyCalories === 0 && dailyProtein === 0 ? (
+      {dailyCalories === 0 &&
+      dailyProtein === 0 &&
+      dailyCarbs === 0 &&
+      dailyFats === 0 ? (
         <Formik
           initialValues={{
+            age: "",
+            feet: "",
+            inches: "",
             gender: "",
             goal: "",
             activityLevel: "",
@@ -118,34 +345,111 @@ const MacroCalculator = () => {
             goalWeight: "",
           }}
           validationSchema={Yup.object({
-            gender: Yup.string().required("Gender is Required"),
-            goal: Yup.string().required("Goal is Required"),
-            activityLevel: Yup.string().required("Activity Level is Required"),
+            age: Yup.number()
+              .typeError("Enter a valid number")
+              .positive("Must be more than 0")
+              .integer("Must be an integer")
+              .required("This field is required"),
+            gender: Yup.string().required("This field is required"),
+            feet: Yup.number()
+              .typeError("Enter a valid number")
+              .lessThan(10, "Must be between 1-9 feet")
+              .moreThan(0, "Must be between 1-9 feet")
+              .integer("Must be an integer")
+              .required("This field is required"),
+            inches: Yup.number()
+              .typeError("Enter a valid number")
+              .lessThan(12, "Must be between 0-11 inches")
+              .moreThan(-1, "Must be between 0-11 inches")
+              .integer("Must be an integer")
+              .required("This field is required"),
+            goal: Yup.string().required("This field is required"),
+            activityLevel: Yup.string().required("This field is required"),
             currentWeight: Yup.number()
               .typeError("Enter a valid number")
-              .required("Current Weight is Required"),
+              .positive("Must be more than 0")
+              .integer("Must be an integer")
+              .required("This field is required"),
             goalWeight: Yup.number()
               .typeError("Enter a valid number")
-              .required("Goal Weight is Required"),
+              .positive("Must be more than 0")
+              .integer("Must be an integer")
+              .required("This field is required"),
           })}
           onSubmit={(values, { resetForm }) => {
             calculateCalories(
+              values.age,
               values.goal,
+              values.gender,
+              values.feet,
+              values.inches,
               values.goalWeight,
               values.currentWeight,
               values.activityLevel
             );
-            calculateProteinGoal(values.gender, values.goalWeight);
 
             resetForm();
           }}
         >
           {({ isSubmitting }) => (
             <Form className="flex flex-col items-center">
+              <MyTextInput
+                label="Age"
+                name="age"
+                type="text"
+                placeholder="Enter your age"
+              />
               <MySelect label="Gender" name="gender">
                 <option value="">Select a gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+              </MySelect>
+              <div className="mt-4">
+                <label className="text-neutral-50 font-bold">Height</label>
+                <div className="flex">
+                  <MyFeetTextInput name="feet" type="text" placeholder="feet" />
+                  <MyInchesTextInput
+                    name="inches"
+                    type="text"
+                    placeholder="inches"
+                  />
+                </div>
+              </div>
+              <MyTextInput
+                label="Current Weight"
+                name="currentWeight"
+                type="text"
+                placeholder="Enter current weight"
+              />
+              <MyTextInput
+                label="Goal Weight"
+                name="goalWeight"
+                type="text"
+                placeholder="Enter goal weight"
+              />
+              <MySelect label="Activity Level" name="activityLevel">
+                <option value="">Select an activity level</option>
+                {/* 1.2 */}
+                <option value="Sedentary">
+                  Sedentary - Little or no exercise
+                </option>
+                {/* 1.375 */}
+                <option value="Lightly Active">
+                  Lightly Active - Exercise 1-2 days per week
+                </option>
+                {/* 1.55 */}
+                <option value="Moderately Active">
+                  Moderately Active - Exercise 3-5 days per week
+                </option>
+                {/* 1.725 */}
+                <option value="Very Active">
+                  Very Active - Exercise 6-7 days per week
+                </option>
+                {/* 1.9 */}
+                <option value="Extremely Active">
+                  Extremely Active - Heavy exercise, hard labor job, training 2x
+                  / day
+                </option>
               </MySelect>
               <MySelect label="Goal" name="goal">
                 <option value="">Select a goal</option>
@@ -159,33 +463,7 @@ const MacroCalculator = () => {
                   Maintain - Maintain my current weight
                 </option>
               </MySelect>
-              <MySelect label="Activity Level" name="activityLevel">
-                <option value="">Select an activity level</option>
-                <option value="Sedentary">
-                  Sedentary - Little or no exercise
-                </option>
-                <option value="Lightly Active">
-                  Lightly Active - Exercise 1-2 days per week
-                </option>
-                <option value="Moderately Active">
-                  Moderately Active - Exercise 3-5 days per week
-                </option>
-                <option value="Extremely Active">
-                  Extremely Active - Exercise 6-7 days per week
-                </option>
-              </MySelect>
-              <MyTextInput
-                label="Current Weight"
-                name="currentWeight"
-                type="text"
-                placeholder="Enter current weight"
-              />
-              <MyTextInput
-                label="Goal Weight"
-                name="goalWeight"
-                type="text"
-                placeholder="Enter goal weight"
-              />
+
               <button
                 disabled={isSubmitting}
                 type="submit"
@@ -198,23 +476,22 @@ const MacroCalculator = () => {
         </Formik>
       ) : (
         <div className="flex flex-col items-center">
-          <div className="bg-neutral-400 px-4 py-4 w-80 md:w-2/3 md:h-60 md:flex md:flex-col md:justify-evenly rounded mb-6">
+          <div className="bg-neutral-400 px-4 py-4 w-80 md:w-2/3 md:flex md:flex-col md:justify-evenly rounded mb-6">
             <div className="mb-2">
               <h1 className="text-neutral-800 text-2xl text-center">Results</h1>
               <hr className="mt-4" />
             </div>
+
             <div className="md:flex md:items-center justify-evenly">
-              <div className="mb-2 flex md:flex-col">
+              <div className="mb-2">
+                <h1 className="text-neutral-800 text-2xl md:text-center">
+                  Calories:
+                </h1>
+              </div>
+              <div className="mb-2 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mr-2">
-                    <IoIosFlame
-                      className="animate-wiggle"
-                      color="black"
-                      size={20}
-                    />
-                  </div>
-                  <div className="mb-2 flex md:flex-col">
-                    <h1 className="text-neutral-800 mr-2 md:m-0">
+                  <div className="mb-2 flex ">
+                    <h1 className="text-neutral-800 mr-2">
                       Daily Calorie Target:
                     </h1>
                     <p className="text-neutral-800 text-center font-bold">
@@ -223,41 +500,55 @@ const MacroCalculator = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-2 flex md:flex-col">
+              <div className="mb-2 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mr-2">
-                    <GiMeat
-                      className="animate-wiggle"
-                      color="black"
-                      size={20}
-                    />
-                  </div>
-                  <div className="mb-2 flex md:flex-col">
-                    <h1 className="text-neutral-800 mr-2 md:m-0">
-                      Daily Protein Target:
-                    </h1>
-
-                    <p className="text-neutral-800 text-center font-bold">
-                      {dailyProtein}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-2 flex md:flex-col">
-                <div className="flex">
-                  <div className="mr-2">
-                    <GiMeal
-                      className="animate-wiggle"
-                      color="black"
-                      size={20}
-                    />
-                  </div>
-                  <div className="mb-2 flex md:flex-col">
-                    <h1 className="text-neutral-800 mr-2 md:m-0">
+                  <div className="mb-2 flex ">
+                    <h1 className="text-neutral-800 mr-2">
                       Weekly Calorie Target:
                     </h1>
                     <p className="text-neutral-800 text-center font-bold">
                       {numberWithCommas(dailyCalories * 7)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:flex md:items-center justify-evenly">
+              <div className="mb-2">
+                <h1 className="text-neutral-800 text-2xl md:text-center">
+                  Macros:
+                </h1>
+              </div>
+              <div className="mb-2 md:mb-0 flex ">
+                <div className="flex">
+                  <div className="mb-2 flex ">
+                    <h1 className="text-neutral-800 mr-2">Protein:</h1>
+
+                    <p className="text-neutral-800 text-center font-bold">
+                      {dailyProtein}g
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-2 md:mb-0 flex ">
+                <div className="flex">
+                  <div className="mb-2 flex ">
+                    <h1 className="text-neutral-800 mr-2">Carbs:</h1>
+
+                    <p className="text-neutral-800 text-center font-bold">
+                      {dailyCarbs}g
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-2 md:mb-0 flex ">
+                <div className="flex">
+                  <div className="mb-2 flex ">
+                    <h1 className="text-neutral-800 mr-2">Fats:</h1>
+
+                    <p className="text-neutral-800 text-center font-bold">
+                      {dailyFats}g
                     </p>
                   </div>
                 </div>
@@ -269,6 +560,8 @@ const MacroCalculator = () => {
               onClick={() => {
                 setDailyCalories(0);
                 setDailyProtein(0);
+                setDailyCarbs(0);
+                setDailyFats(0);
               }}
               type="button"
               className="w-60  py-2 px-4 rounded bg-gradient-to-r from-green-500 to-green-700 text-neutral-700 hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black"
@@ -284,10 +577,10 @@ const MacroCalculator = () => {
               calculated and shown above. Knowing your weekly caloric intake is
               a very powerful tool, because it allows you to have days where you
               either consume less than or more than your calorie goal for the
-              day and still be compliant to your overall calorie goal. This is
-              very useful in scenarios where life happens, and you simply just
-              want to enjoy yourself. No harm no foul, since you know your total
-              calorie goal for the week.
+              day and still be compliant to your overall weekly calorie goal.
+              This is very useful in scenarios where life happens, and you
+              simply just want to enjoy yourself. No harm no foul, since you
+              know your total calorie goal for the week.
             </p>
             <p className=" text-xl font-bold text-green-500">Protein Target:</p>
             <p className="mt-2 text-neutral-50 mb-4">
@@ -302,13 +595,14 @@ const MacroCalculator = () => {
               Fat and Carb Target:
             </p>
             <p className="mt-2 text-neutral-50 mb-4">
-              Your daily fat and carb target is up to you. As long as you are
-              hitting your protein and calorie goal, the amount of carb vs fat
-              does not matter. Some do better with higher carb, and some do
-              better with lower carb. We are following more of a flexible
-              approach to dieting, because I do not believe in forcing someone
-              into a super restrictive lifestyle by following a diet where a
-              macro nutrient is entirely cut out for the sake of losing weight.
+              Although a carb and fat estimate was given to you, your daily fat
+              and carb target is up to you. As long as you are hitting your
+              protein and calorie goal, the amount of carb vs fat does not
+              matter. Some do better with higher carb, and some do better with
+              lower carb. We are following more of a flexible approach to
+              dieting, because I do not believe in forcing someone into a super
+              restrictive lifestyle by following a diet where a macro nutrient
+              is entirely cut out for the sake of losing weight.
             </p>
             <p className="text-sm text-neutral-50 mb-4">
               * This calculation is an estimation based on the information you
