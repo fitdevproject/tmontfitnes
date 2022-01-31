@@ -326,7 +326,7 @@ const MacroCalculator = () => {
   }, [dailyCalories, dailyProtein, dailyCarbs, dailyFats]);
   return (
     <>
-      <h1 className="block mx-auto my-8 text-center text-neutral-50 text-3xl">
+      <h1 className="block mx-auto my-8 text-center text-green-500 text-3xl">
         Macro Calculator
       </h1>
       {dailyCalories === 0 &&
