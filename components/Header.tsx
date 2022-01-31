@@ -148,7 +148,7 @@ const Navbar = () => {
             Links
           </a>
         </Link>
-        <Link href="/Links">
+        <Link href="/MacroCalculator">
           <a
             onClick={closeMenu}
             className="cursor-pointer block py-4 px-4 text-sm hover:bg-neutral-800  text-neutral-50 hover:text-neutral-300"
