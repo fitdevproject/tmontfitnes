@@ -77,7 +77,7 @@ module.exports = {
         "fade-out-down": "fade-out-down 1s ease-out",
         "fade-in-up": "fade-in-up 1s ease-out",
         "fade-out-up": "fade-out-up 1s ease-out",
-        wiggle: "wiggle 2s ease-in-out",
+        wiggle: "wiggle 1s ease-in-out infinite",
       },
 
       backgroundImage: {
@@ -94,13 +94,16 @@ module.exports = {
           100: "#252525",
         },
         tmontGreen: {
-          100: "#63B175",
+          100: "#6DB33F",
         },
         tmontActiveTab: {
           100: "#4E9359",
         },
         tmontGray: {
-          100: "#525E74",
+          100: "#1B1F23",
+        },
+        tmontSecondaryGray: {
+          100: "#262A2D",
         },
       },
     },

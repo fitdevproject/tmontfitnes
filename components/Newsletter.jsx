@@ -50,7 +50,7 @@ const Newsletter = () => {
             <button
               type="submit"
               name="member[subscribe]"
-              className="w-52 my-6 py-2 px-4 rounded bg-gradient-to-r from-green-500 to-green-700 text-neutral-700 hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black"
+              className="w-52 my-6 py-2 px-4 rounded bg-gradient-to-r bg-tmontGreen-100 hover:scale-110"
             >
               Subscribe
             </button>

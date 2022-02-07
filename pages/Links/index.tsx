@@ -19,26 +19,26 @@ const Links: NextPage = () => {
           Build Muscle - Lose Body Fat - Gain Confidence
         </p>
         <Link href="/">
-          <a className="text-green-500 text-sm hover:text-green-700 my-4">
+          <a className="text-tmontGreen-100 text-sm hover:scale-110 my-4">
             www.tmontfitness.com
           </a>
         </Link>
       </div>
       <div className="text-center">
         <Link href="/#freeWorkout">
-          <a className="animate-fade-in-down mx-auto block my-4 rounded bg-gradient-to-r from-green-500 to-green-700 max-w-xs md:max-w-xl py-4 px-4 md:text-lg hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black text-neutral-700">
+          <a className="animate-fade-in-down mx-auto block my-4 rounded  max-w-xs md:max-w-xl py-4 px-4 md:text-lg bg-tmontGreen-100 hover:scale-110">
             Free Full Body Workout Blueprint
           </a>
         </Link>
         <Link href="/MacroCalculator">
-          <a className="animate-fade-in-down mx-auto block my-4 rounded bg-gradient-to-r from-green-500 to-green-700 max-w-xs md:max-w-xl py-4 px-4 md:text-lg hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black text-neutral-700">
+          <a className="animate-fade-in-down mx-auto block my-4 rounded bg-gradient-to-r max-w-xs md:max-w-xl py-4 px-4 md:text-lg bg-tmontGreen-100 hover:scale-110">
             Calculate Your Macros For Free
           </a>
         </Link>
         <Link href="https://discord.gg/gmPuTXUw">
           <a
             target="_blank"
-            className="animate-fade-in-down mx-auto block mt-4 mb-12 rounded bg-gradient-to-r from-green-500 to-green-700 max-w-xs md:max-w-xl py-4 px-4 md:text-lg hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black text-neutral-700"
+            className="animate-fade-in-down mx-auto block mt-4 mb-12 rounded bg-gradient-to-r  max-w-xs md:max-w-xl py-4 px-4 md:text-lg bg-tmontGreen-100 hover:scale-110"
           >
             Join Free Discord Community
           </a>

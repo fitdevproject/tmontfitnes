@@ -224,7 +224,7 @@ const MacroCalculator = () => {
     return (
       <div className="flex flex-col md:w-96 w-80">
         <label
-          className="text-neutral-50 mt-4 font-bold"
+          className="text-tmontGreen-100 mt-6 mb-2 font-bold"
           htmlFor={props.id || props.name}
         >
           {label}
@@ -232,8 +232,8 @@ const MacroCalculator = () => {
         <input
           className={
             meta.touched && meta.error
-              ? "m-0 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-red-500 h-auto bg-neutral-400"
-              : "m-0 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-neutral-700 h-auto bg-neutral-400"
+              ? "mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              : "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
           {...props}
@@ -255,8 +255,8 @@ const MacroCalculator = () => {
         <input
           className={
             meta.touched && meta.error
-              ? "mr-2 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-red-500 h-auto bg-neutral-400"
-              : "mr-2 appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-neutral-700 h-auto bg-neutral-400"
+              ? "mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              : "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
           {...props}
@@ -278,8 +278,8 @@ const MacroCalculator = () => {
         <input
           className={
             meta.touched && meta.error
-              ? " appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-red-500 h-auto bg-neutral-400"
-              : " appearance-none box-border py-2 placeholder:text-neutral-800 px-2 rounded border-neutral-700 h-auto bg-neutral-400"
+              ? "mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              : "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
           {...props}
@@ -296,7 +296,7 @@ const MacroCalculator = () => {
     return (
       <div className="flex flex-col md:w-96 w-80">
         <label
-          className="text-neutral-50 mt-4 font-bold"
+          className="text-tmontGreen-100 mt-6 mb-2 font-bold"
           htmlFor={props.id || props.name}
         >
           {label}
@@ -304,8 +304,8 @@ const MacroCalculator = () => {
         <select
           className={
             meta.touched && meta.error
-              ? "m-0 cursor-pointer bg-neutral-400 text-neutral-800 box-border py-2 px-2 h-auto rounded border-red-500 "
-              : "m-0 cursor-pointer bg-neutral-400 text-neutral-800 box-border py-2 px-2 h-auto rounded border-neutral-700 "
+              ? "cursor-pointer mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              : "cursor-pointer mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
           {...props}
@@ -326,7 +326,7 @@ const MacroCalculator = () => {
   }, [dailyCalories, dailyProtein, dailyCarbs, dailyFats]);
   return (
     <>
-      <h1 className="block mx-auto my-8 text-center text-green-500 text-3xl">
+      <h1 className="block mx-auto mt-8 text-center text-neutral-50 text-3xl">
         Macro Calculator
       </h1>
       {dailyCalories === 0 &&
@@ -404,9 +404,9 @@ const MacroCalculator = () => {
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </MySelect>
-              <div className="mt-4">
-                <label className="text-neutral-50 font-bold">Height</label>
-                <div className="flex">
+              <div className="mt-6">
+                <label className="text-tmontGreen-100 font-bold">Height</label>
+                <div className="flex mt-2">
                   <MyFeetTextInput name="feet" type="text" placeholder="feet" />
                   <MyInchesTextInput
                     name="inches"
@@ -467,7 +467,7 @@ const MacroCalculator = () => {
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className="w-60 my-6 py-2 px-4 rounded bg-gradient-to-r from-green-500 to-green-700 text-neutral-700 hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black"
+                className="w-60 my-12 py-2 px-4 rounded text-tmontGray-100 bg-tmontGreen-100 hover:scale-110"
               >
                 Calculate
               </button>
