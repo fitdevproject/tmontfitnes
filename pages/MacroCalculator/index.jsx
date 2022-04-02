@@ -232,7 +232,7 @@ const MacroCalculator = () => {
         <input
           className={
             meta.touched && meta.error
-              ? "mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              ? "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
               : "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
@@ -255,7 +255,7 @@ const MacroCalculator = () => {
         <input
           className={
             meta.touched && meta.error
-              ? "mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              ? "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
               : "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
@@ -278,7 +278,7 @@ const MacroCalculator = () => {
         <input
           className={
             meta.touched && meta.error
-              ? "mr-2 appearance-none   py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
+              ? "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded border-red-500 border-2 h-auto text-neutral-50 bg-tmontGray-100"
               : "mr-2 appearance-none  py-2 placeholder:text-neutral-50 px-2 rounded h-auto border-2 border-neutral-50 text-neutral-50 bg-tmontGray-100"
           }
           {...field}
@@ -326,7 +326,7 @@ const MacroCalculator = () => {
   }, [dailyCalories, dailyProtein, dailyCarbs, dailyFats]);
   return (
     <>
-      <h1 className="block mx-auto mt-8 text-center text-neutral-50 text-3xl">
+      <h1 className="block mx-auto my-8 text-center text-neutral-50 text-3xl">
         Macro Calculator
       </h1>
       {dailyCalories === 0 &&
@@ -482,7 +482,7 @@ const MacroCalculator = () => {
               <hr className="mt-4" />
             </div>
 
-            <div className="md:flex md:items-center justify-evenly">
+            <div className="md:flex md:items-center justify-evenly mt-8 mb-2">
               <div className="mb-2">
                 <h1 className="text-neutral-800 text-2xl md:text-center">
                   Calories:
@@ -514,7 +514,7 @@ const MacroCalculator = () => {
               </div>
             </div>
 
-            <div className="md:flex md:items-center justify-evenly">
+            <div className="md:flex md:items-center justify-evenly mb-8">
               <div className="mb-2">
                 <h1 className="text-neutral-800 text-2xl md:text-center">
                   Macros:
@@ -555,7 +555,7 @@ const MacroCalculator = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center mb-8">
+          <div className="flex items-center">
             <button
               onClick={() => {
                 setDailyCalories(0);
@@ -564,13 +564,15 @@ const MacroCalculator = () => {
                 setDailyFats(0);
               }}
               type="button"
-              className="w-60  py-2 px-4 rounded bg-gradient-to-r from-green-500 to-green-700 text-neutral-700 hover:bg-gradient-to-r hover:from-green-600 hover:to-green-900 hover:text-black"
+              className="w-60 my-4 py-2 px-4 rounded text-tmontGray-100 bg-tmontGreen-100 hover:scale-110"
             >
               Recalculate
             </button>
           </div>
           <div className="px-4 py-4 w-96 md:w-4/5 mb-8">
-            <p className=" text-xl font-bold text-green-500">Calorie Target:</p>
+            <p className=" text-xl font-bold text-tmontGreen-100">
+              Calorie Target:
+            </p>
             <p className="mt-2 text-neutral-50 mb-4">
               Your daily calorie goal is the amount of calories you should aim
               to eat each day. Your total calories for the week has also been
@@ -582,7 +584,9 @@ const MacroCalculator = () => {
               simply just want to enjoy yourself. No harm no foul, since you
               know your total calorie goal for the week.
             </p>
-            <p className=" text-xl font-bold text-green-500">Protein Target:</p>
+            <p className=" text-xl font-bold text-tmontGreen-100">
+              Protein Target:
+            </p>
             <p className="mt-2 text-neutral-50 mb-4">
               Your daily protein target is the most important number to hit.
               Calories from protein should be prioritized, because they will
@@ -591,7 +595,7 @@ const MacroCalculator = () => {
               hit your protein goal each day to either hold onto or gain muscle
               depending on the goal you have chosen.
             </p>
-            <p className="text-green-500 text-xl font-bold">
+            <p className="text-tmontGreen-100 text-xl font-bold">
               Fat and Carb Target:
             </p>
             <p className="mt-2 text-neutral-50 mb-4">

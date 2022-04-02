@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center">
         <h1 className="text-neutral-50 mt-2 text-sm">Follow On Social</h1>
         <div className="flex mt-2">
-          <Link href="https://twitter.com/tmontfitness">
+          <Link href="https://twitter.com/tmontgomery93">
             <a className="animate-wiggle mr-4" target="_blank">
               <IoLogoTwitter
                 className="hover:scale-110 text-tmontGreen-100"

@@ -43,7 +43,7 @@ const Navbar = () => {
                     : "font-bold cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100"
                 }
               >
-                <div className="flex align-middle">
+                <div className="flex align-middle hover:scale-110">
                   <GiWeightLiftingUp
                     className={
                       navbar
@@ -74,10 +74,10 @@ const Navbar = () => {
                   router.pathname === "/" && navbar
                     ? "cursor-pointer py-5 px-3 text-tmontGray-100"
                     : router.pathname !== "/" && navbar
-                    ? "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGray-100"
+                    ? "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGray-100 hover:scale-110"
                     : router.pathname === "/" && navbar === false
-                    ? "cursor-pointer py-5 px-3 text-tmontGreen-100 hover:text-tmontGreen-100"
-                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100"
+                    ? "cursor-pointer py-5 px-3 text-tmontGreen-100"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100 hover:scale-110"
                 }
               >
                 Home
@@ -90,10 +90,10 @@ const Navbar = () => {
                   router.pathname === "/Links" && navbar
                     ? "cursor-pointer py-5 px-3 text-tmontGray-100"
                     : router.pathname !== "/Links" && navbar
-                    ? "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGray-100"
+                    ? "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGray-100 hover:scale-110"
                     : router.pathname === "/Links" && navbar === false
-                    ? "cursor-pointer py-5 px-3 text-tmontGreen-100 hover:text-tmontGreen-100"
-                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100"
+                    ? "cursor-pointer py-5 px-3 text-tmontGreen-100"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100 hover:scale-110"
                 }
               >
                 Links
@@ -118,10 +118,10 @@ const Navbar = () => {
                   router.pathname === "/MacroCalculator" && navbar
                     ? "cursor-pointer py-5 px-3 text-tmontGray-100"
                     : router.pathname !== "/MacroCalculator" && navbar
-                    ? "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGray-100"
+                    ? "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGray-100 hover:scale-110"
                     : router.pathname === "/MacroCalculator" && navbar === false
-                    ? "cursor-pointer py-5 px-3 text-tmontGreen-100 hover:text-tmontGreen-100"
-                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100"
+                    ? "cursor-pointer py-5 px-3 text-tmontGreen-100"
+                    : "cursor-pointer py-5 px-3 text-neutral-50 hover:text-tmontGreen-100 hover:scale-110"
                 }
               >
                 Macro Calculator
