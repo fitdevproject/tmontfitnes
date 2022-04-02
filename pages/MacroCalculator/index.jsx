@@ -477,9 +477,9 @@ const MacroCalculator = () => {
       ) : (
         <div className="flex flex-col items-center">
           <div className="bg-neutral-400 px-4 py-4 w-80 md:w-2/3 md:flex md:flex-col md:justify-evenly rounded mb-4 md:mb-6">
-            <div className="mb-2">
+            <div className="mb-4 md:mb-0">
               <h1 className="text-neutral-800 text-2xl text-center">Results</h1>
-              <hr className="mt-4" />
+              <hr className="mt-1" />
             </div>
 
             <div className="md:flex md:items-center justify-evenly md:mt-8 md:mb-6">
