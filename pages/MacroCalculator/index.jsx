@@ -476,21 +476,21 @@ const MacroCalculator = () => {
         </Formik>
       ) : (
         <div className="flex flex-col items-center">
-          <div className="bg-neutral-400 px-4 py-4 w-80 md:w-2/3 md:flex md:flex-col md:justify-evenly rounded mb-6">
+          <div className="bg-neutral-400 px-4 py-4 w-80 md:w-2/3 md:flex md:flex-col md:justify-evenly rounded mb-4 md:mb-6">
             <div className="mb-2">
               <h1 className="text-neutral-800 text-2xl text-center">Results</h1>
               <hr className="mt-4" />
             </div>
 
-            <div className="md:flex md:items-center justify-evenly mt-8 mb-2">
-              <div className="mb-2">
+            <div className="md:flex md:items-center justify-evenly md:mt-8 md:mb-2">
+              <div className="mb-1 md:mb-2">
                 <h1 className="text-neutral-800 text-2xl md:text-center">
                   Calories:
                 </h1>
               </div>
-              <div className="mb-2 md:mb-0 flex ">
+              <div className="mb-1 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mb-2 flex ">
+                  <div className="flex ">
                     <h1 className="text-neutral-800 mr-2">
                       Daily Calorie Target:
                     </h1>
@@ -500,9 +500,9 @@ const MacroCalculator = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-2 md:mb-0 flex ">
+              <div className="mb-1 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mb-2 flex ">
+                  <div className="flex ">
                     <h1 className="text-neutral-800 mr-2">
                       Weekly Calorie Target:
                     </h1>
@@ -514,15 +514,15 @@ const MacroCalculator = () => {
               </div>
             </div>
 
-            <div className="md:flex md:items-center justify-evenly mb-8">
-              <div className="mb-2">
+            <div className="md:flex md:items-center justify-evenly md:mb-8">
+              <div className="mb-1 md:mb-2">
                 <h1 className="text-neutral-800 text-2xl md:text-center">
                   Macros:
                 </h1>
               </div>
-              <div className="mb-2 md:mb-0 flex ">
+              <div className="mb-1 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mb-2 flex ">
+                  <div className="flex ">
                     <h1 className="text-neutral-800 mr-2">Protein:</h1>
 
                     <p className="text-neutral-800 text-center font-bold">
@@ -531,9 +531,9 @@ const MacroCalculator = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-2 md:mb-0 flex ">
+              <div className="mb-1 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mb-2 flex ">
+                  <div className="flex ">
                     <h1 className="text-neutral-800 mr-2">Carbs:</h1>
 
                     <p className="text-neutral-800 text-center font-bold">
