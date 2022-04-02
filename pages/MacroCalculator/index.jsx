@@ -482,7 +482,7 @@ const MacroCalculator = () => {
               <hr className="mt-4" />
             </div>
 
-            <div className="md:flex md:items-center justify-evenly md:mt-8 md:mb-2">
+            <div className="md:flex md:items-center justify-evenly md:mt-8 md:mb-6">
               <div className="mb-1 md:mb-2">
                 <h1 className="text-neutral-800 text-2xl md:text-center">
                   Calories:
@@ -542,9 +542,9 @@ const MacroCalculator = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-2 md:mb-0 flex ">
+              <div className="mb-1 md:mb-0 flex ">
                 <div className="flex">
-                  <div className="mb-2 flex ">
+                  <div className="flex ">
                     <h1 className="text-neutral-800 mr-2">Fats:</h1>
 
                     <p className="text-neutral-800 text-center font-bold">
