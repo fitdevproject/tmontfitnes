@@ -136,8 +136,8 @@ const Navbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   className={
                     navbar
-                      ? "h-6 w-6 text-neutral-50 hover:text-tmontGray-100"
-                      : "h-6 w-6 text-neutral-50 hover:text-tmontGreen-100"
+                      ? "h-6 w-6 text-neutral-50 hover:text-tmontGray-100 hover:scale-110"
+                      : "h-6 w-6 text-neutral-50 hover:text-tmontGreen-100 hover:scale-110"
                   }
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -153,8 +153,8 @@ const Navbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   className={
                     navbar
-                      ? "h-6 w-6 text-neutral-50 hover:text-tmontGray-100"
-                      : "h-6 w-6 text-neutral-50 hover:text-tmontGreen-100"
+                      ? "h-6 w-6 text-neutral-50 hover:text-tmontGray-100 hover:scale-110"
+                      : "h-6 w-6 text-neutral-50 hover:text-tmontGreen-100 hover:scale-110"
                   }
                   viewBox="0 0 20 20"
                   fill="currentColor"
